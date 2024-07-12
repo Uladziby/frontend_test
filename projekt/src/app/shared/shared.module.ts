@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TitleComponentComponent } from './components/title-component/title-component.component';
 import { TitleComponent } from './components/title/title.component';
-
-
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LogoSvgComponent } from './components/logo-svg/logo-svg.component';
 
 @NgModule({
-  declarations: [
-    TitleComponentComponent,
-    TitleComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [TitleComponent, HeaderComponent, FooterComponent, LogoSvgComponent],
+  imports: [CommonModule],
+  exports: [TitleComponent, HeaderComponent, FooterComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

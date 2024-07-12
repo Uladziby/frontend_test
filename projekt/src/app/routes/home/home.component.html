@@ -1,0 +1,54 @@
+<div class="home">
+  <div class="home__header">
+    <app-title> Nadglowek H2 </app-title>
+    <div class="home__header-line"></div>
+  </div>
+  <div class="home__blocks">
+    <div class="home__blocks-first">
+      <h3 class="home__blocks-second_title">BLOK PIERWSZY</h3>
+      <form>
+        <div>
+          <input
+            type="radio"
+            id="option1"
+            name="options"
+            value="option1"
+            (change)="onSelectionChange($event)"
+          />
+          <label for="option1">Opcja pierwsza</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="option2"
+            name="options"
+            value="option2"
+            (change)="onSelectionChange($event)"
+          />
+          <label for="option2">Opcja druga</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="option3"
+            name="options"
+            value="option3"
+            (change)="onSelectionChange($event)"
+          />
+          <label for="option3">Opcja losowa</label>
+        </div>
+        <p>Selected option: {{ selectedOption }}</p>
+      </form>
+    </div>
+    <div class="home__blocks-second">
+      <h3 class="home__blocks-second_title">BLOK DRUGI</h3>
+      <button>ZASTĄP</button>
+      <button>DOKLEJ</button>
+    </div>
+  </div>
+  <div class="home__text-block">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut autem
+    eius natus quibusdam dolorum labore eum consequuntur fugit quos hic impedit
+    assumenda a eligendi, quis voluptates! Quis, placeat animi!
+  </div>
+</div>
