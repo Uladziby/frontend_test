@@ -1,0 +1,21 @@
+<div class="container">
+  <ng-container *ngFor="let option of options">
+    <!-- <app-radio-button
+      [options]="option"
+      (onChangeValue)="onSelectionChange($event)"
+      >{{ option.label }}</app-radio-button
+    > -->
+
+    <label for="{{ option.id }}" class="label"
+      ><input
+        class="radio-input"
+        type="radio"
+        id="{{ option.id }}"
+        name="options"
+        value="{{ option.value }}"
+        (change)="onChangeValue($event)"
+      />
+      {{ option.label }}
+    </label>
+  </ng-container>
+</div>

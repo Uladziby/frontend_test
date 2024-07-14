@@ -6,49 +6,23 @@
   <div class="home__blocks">
     <div class="home__blocks-first">
       <h3 class="home__blocks-second_title">BLOK PIERWSZY</h3>
-      <form>
-        <div>
-          <input
-            type="radio"
-            id="option1"
-            name="options"
-            value="option1"
-            (change)="onSelectionChange($event)"
-          />
-          <label for="option1">Opcja pierwsza</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="option2"
-            name="options"
-            value="option2"
-            (change)="onSelectionChange($event)"
-          />
-          <label for="option2">Opcja druga</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="option3"
-            name="options"
-            value="option3"
-            (change)="onSelectionChange($event)"
-          />
-          <label for="option3">Opcja losowa</label>
-        </div>
-        <p>Selected option: {{ selectedOption }}</p>
-      </form>
+
+      <app-radio-group
+        class="radio-group"
+        [options]="options"
+        (changeValueHandler)="onSelectionChange($event)"
+      ></app-radio-group>
+      <p>Selected option: {{ selectedOption }}</p>
     </div>
     <div class="home__blocks-second">
       <h3 class="home__blocks-second_title">BLOK DRUGI</h3>
-      <button>ZASTĄP</button>
-      <button>DOKLEJ</button>
+      <div class="home__blocks-second_buttons">
+        <app-button (click)="onChangeText()">DOKLEJ</app-button>
+        <app-button (click)="onReplaceText()">ZASTĄP</app-button>
+      </div>
     </div>
   </div>
   <div class="home__text-block">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut autem
-    eius natus quibusdam dolorum labore eum consequuntur fugit quos hic impedit
-    assumenda a eligendi, quis voluptates! Quis, placeat animi!
+    {{ randomText }}
   </div>
 </div>
