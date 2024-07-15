@@ -7,6 +7,9 @@ import { LogoSvgComponent } from './components/logo-svg/logo-svg.component';
 import { ButtonComponent } from './components/button/button.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioGroupComponent } from './components/radio-group/radio-group.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { ShevronSvgComponent } from './components/shevron-svg/shevron-svg.component';
+import { FooterLogoComponent } from './components/footer-logo/footer-logo.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { RadioGroupComponent } from './components/radio-group/radio-group.compon
     ButtonComponent,
     RadioButtonComponent,
     RadioGroupComponent,
+    DropdownComponent,
+    ShevronSvgComponent,
+    FooterLogoComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -26,6 +32,9 @@ import { RadioGroupComponent } from './components/radio-group/radio-group.compon
     ButtonComponent,
     RadioButtonComponent,
     RadioGroupComponent,
+    DropdownComponent,
+    ShevronSvgComponent,
+    FooterLogoComponent,
   ],
 })
 export class SharedModule {}

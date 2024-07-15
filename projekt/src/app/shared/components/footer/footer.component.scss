@@ -1,19 +1,22 @@
 .footer {
   display: flex;
+  justify-content: space-between;
   background: black;
   color: white;
-  margin-top: auto;
+  padding: 0rem 2rem 0.5rem 2rem;
+  position: relative;
+  height: 7rem;
 
   &__left {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    width: 50%;
+    margin: 0.5rem 0;
+    flex: 1;
   }
   &__right {
     display: flex;
-    justify-content: space-around;
+    flex: 1;
     align-items: center;
-    width: 50%;
+    justify-content: flex-end;
   }
 }

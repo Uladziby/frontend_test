@@ -1,0 +1,44 @@
+.outer_frame {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.5s, border-color 0.5s;
+  border: 2px solid black;
+
+  &__frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    color: transparent;
+    border: 1px solid white;
+    z-index: 20;
+    transform: rotate(0deg);
+    transition: transform 0.5s, border-color 0.5s;
+    margin: 1rem;
+  }
+
+  &__frame:hover {
+    transform: scale(1) rotate(90deg);
+    border-color: orange;
+    transition: transform 0.5s, border-color 0.5s ease-in-out;
+    will-change: transform;
+  }
+
+  &__text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: relative;
+    text-align: start;
+    font-weight: 200;
+    font-size: 22px;
+    letter-spacing: 1.6px;
+    z-index: 10;
+    padding: 1rem 0 0.5rem 1.2rem;
+  }
+}
