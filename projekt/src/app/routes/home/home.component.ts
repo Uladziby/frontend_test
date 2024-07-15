@@ -1,17 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { generateRandomIndex, ramdomText } from '@app/shared/utils/constatnts';
-
-export type RadioGroupOptions = {
-  id: number;
-  value: string;
-  label: string;
-};
-
-export type ContentData = {
-  id: number;
-  body: string;
-};
+import { ContentData, RadioGroupOptions } from '@app/shared/utils/types';
 
 @Component({
   selector: 'app-home',
@@ -20,14 +10,20 @@ export type ContentData = {
 })
 export class HomeComponent {
   selectedOption: string = '';
+
+  randomText: string = ramdomText;
+
+  contentData: ContentData[] = [];
+
+  url: string = '/assets/mock-data.json';
+
+  isWarning: boolean = false;
+
   options: RadioGroupOptions[] = [
     { id: 1, value: '1', label: 'Opcja pierwsza' },
     { id: 2, value: '2', label: 'Opcja druga' },
     { id: 3, value: 'option_random', label: 'Opcja losowa' },
   ];
-  randomText: string = ramdomText;
-  contentData: ContentData[] = [];
-  url: string = '/assets/mock-data.json';
 
   constructor(private http: HttpClient) {}
 
@@ -42,6 +38,12 @@ export class HomeComponent {
   }
 
   onChangeText() {
+    this.validateInput();
+
+    if (this.isWarning) {
+      return;
+    }
+
     const content = this.onFindBody(this.selectedOption);
 
     if (!content) {
@@ -52,6 +54,12 @@ export class HomeComponent {
   }
 
   onReplaceText() {
+    this.validateInput();
+
+    if (this.isWarning) {
+      return;
+    }
+
     const content = this.onFindBody(this.selectedOption);
 
     if (!content) {
@@ -71,5 +79,13 @@ export class HomeComponent {
     const randomIndex = generateRandomIndex(max, min);
 
     return this.contentData[randomIndex];
+  }
+
+  validateInput() {
+    if (!this.selectedOption) {
+      this.isWarning = true;
+    } else {
+      this.isWarning = false;
+    }
   }
 }

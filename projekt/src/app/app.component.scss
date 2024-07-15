@@ -1,6 +1,5 @@
 .content {
   display: flex;
-  flex-direction: column;
   flex: 1;
   background-color: #2a2d36;
 }
@@ -10,4 +9,5 @@
   position: relative;
   flex-direction: column;
   min-height: 100vh;
+  min-width: var(--mobile-breakpoint);
 }

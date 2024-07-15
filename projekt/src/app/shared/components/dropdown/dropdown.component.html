@@ -6,17 +6,17 @@
   <button class="dropdown__toggle">
     POKAŻ <app-shevron-svg [position]="shevronPosition"></app-shevron-svg>
   </button>
-  <ul class="dropdown__menu" [class.show]="isDropdownVisible">
+  <ul class="dropdown__menu">
     <li class="dropdown__menu-item">
-      <a href="#" (click)="resetSettings()">
+      <button (click)="resetSettings()">
         <app-shevron-svg></app-shevron-svg>
-        <strong> ZRESETUJ USTAWIENIA </strong></a
-      >
+        <strong> ZRESETUJ USTAWIENIA </strong>
+      </button>
     </li>
     <li class="dropdown__menu-item">
-      <a href="#" (click)="showInformation()">
+      <button (click)="showInformation()">
         <app-shevron-svg></app-shevron-svg><strong> POKAŻ DANE OSOBOWE</strong>
-      </a>
+      </button>
     </li>
   </ul>
 </div>

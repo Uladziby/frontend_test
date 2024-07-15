@@ -11,4 +11,10 @@
   &:hover {
     background-color: #e88201;
   }
+
+  &:active {
+    & > svg {
+      transform: scale(0.92);
+    }
+  }
 }

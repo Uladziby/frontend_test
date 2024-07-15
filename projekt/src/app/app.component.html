@@ -1,5 +1,7 @@
 <main class="main">
-  <app-header></app-header>
-  <div class="content"><router-outlet #o="outlet"></router-outlet></div>
-  <app-footer></app-footer>
+  <app-header [name]="name"></app-header>
+  <div class="content">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
+  <app-footer (emitInformationHandler)="showInformationHandler()"></app-footer>
 </main>

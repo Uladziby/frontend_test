@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NAME_LASTNAME } from '@app/shared/utils/constatnts';
 
 @Component({
   selector: 'app-dropdown',
@@ -6,16 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './dropdown.component.scss',
 })
 export class DropdownComponent {
-  isDropdownVisible = false;
   shevronPosition: string = 'rotate(90deg)';
 
+  @Output() showInformationHandler: EventEmitter<void> =
+    new EventEmitter<void>();
+
   showDropdown() {
-    this.isDropdownVisible = true;
     this.shevronPosition = 'rotate(270deg)';
   }
 
   hideDropdown() {
-    this.isDropdownVisible = false;
     this.shevronPosition = 'rotate(90deg)';
   }
 
@@ -24,6 +25,6 @@ export class DropdownComponent {
   }
 
   showInformation() {
-    console.log('Showing information.');
+    this.showInformationHandler.emit();
   }
 }

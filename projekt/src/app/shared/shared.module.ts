@@ -5,11 +5,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LogoSvgComponent } from './components/logo-svg/logo-svg.component';
 import { ButtonComponent } from './components/button/button.component';
-import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioGroupComponent } from './components/radio-group/radio-group.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { ShevronSvgComponent } from './components/shevron-svg/shevron-svg.component';
 import { FooterLogoComponent } from './components/footer-logo/footer-logo.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,19 +18,17 @@ import { FooterLogoComponent } from './components/footer-logo/footer-logo.compon
     FooterComponent,
     LogoSvgComponent,
     ButtonComponent,
-    RadioButtonComponent,
     RadioGroupComponent,
     DropdownComponent,
     ShevronSvgComponent,
     FooterLogoComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     TitleComponent,
     HeaderComponent,
     FooterComponent,
     ButtonComponent,
-    RadioButtonComponent,
     RadioGroupComponent,
     DropdownComponent,
     ShevronSvgComponent,

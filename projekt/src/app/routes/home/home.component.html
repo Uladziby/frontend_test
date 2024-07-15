@@ -5,8 +5,7 @@
   </div>
   <div class="home__blocks">
     <div class="home__blocks-first">
-      <h3 class="home__blocks-second_title">BLOK PIERWSZY</h3>
-
+      <h3 class="home__blocks-first_title">BLOK PIERWSZY</h3>
       <app-radio-group
         class="radio-group"
         [options]="options"
@@ -19,9 +18,15 @@
         <app-button (click)="onChangeText()">DOKLEJ</app-button>
         <app-button (click)="onReplaceText()">ZASTĄP</app-button>
       </div>
+      <div *ngIf="isWarning" class="home__blocks-second_message">
+        Nie wybrana żadna z opcji z pierwszego bloku!
+      </div>
     </div>
-  </div>
-  <div class="home__text-block">
-    {{ randomText }}
+    <div class="home__blocks-third">
+      <h3 class="home__blocks-third_title">
+        BLOK Z DLUGĄ NAZWĄ SAMA SIĘ PRZYTNIE...
+      </h3>
+      {{ randomText }}
+    </div>
   </div>
 </div>
