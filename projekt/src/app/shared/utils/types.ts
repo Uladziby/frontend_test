@@ -8,3 +8,9 @@ export type ContentData = {
   id: number;
   body: string;
 };
+
+export type InitailState = {
+  selectedOption: string;
+  defaultText: string;
+  name: string;
+};

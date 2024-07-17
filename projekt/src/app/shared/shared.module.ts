@@ -10,6 +10,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { ShevronSvgComponent } from './components/shevron-svg/shevron-svg.component';
 import { FooterLogoComponent } from './components/footer-logo/footer-logo.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { RouterModule } from '@angular/router';
     ShevronSvgComponent,
     FooterLogoComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   exports: [
     TitleComponent,
     HeaderComponent,

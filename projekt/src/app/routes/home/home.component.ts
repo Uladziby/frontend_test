@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { generateRandomIndex, ramdomText } from '@app/shared/utils/constatnts';
+import {
+  BASE_URL,
+  generateRandomIndex,
+  verifyDuplicateText,
+} from '@app/shared/utils/constatnts';
 import { ContentData, RadioGroupOptions } from '@app/shared/utils/types';
+import { StateService } from '@app/core/state.service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +16,13 @@ import { ContentData, RadioGroupOptions } from '@app/shared/utils/types';
 export class HomeComponent {
   selectedOption: string = '';
 
-  randomText: string = ramdomText;
+  randomText: string = '';
 
   contentData: ContentData[] = [];
 
-  url: string = '/assets/mock-data.json';
-
   isWarning: boolean = false;
+
+  isExistText: boolean = false;
 
   options: RadioGroupOptions[] = [
     { id: 1, value: '1', label: 'Opcja pierwsza' },
@@ -25,35 +30,56 @@ export class HomeComponent {
     { id: 3, value: 'option_random', label: 'Opcja losowa' },
   ];
 
-  constructor(private http: HttpClient) {}
-
-  onSelectionChange(event: string) {
-    this.selectedOption = event;
-  }
+  constructor(private http: HttpClient, public stateService: StateService) {}
 
   ngOnInit() {
-    this.http.get<ContentData[]>(this.url).subscribe((res) => {
+    this.http.get<ContentData[]>(BASE_URL).subscribe((res) => {
       this.contentData = res;
+    });
+
+    this.stateService.state$.subscribe((state) => {
+      this.selectedOption = state.selectedOption;
+      this.randomText = state.defaultText;
     });
   }
 
+  onSelectionChange(event: string) {
+    this.selectedOption = event;
+    this.stateService.setSelectedOption(event);
+  }
+
   onChangeText() {
+    this.isExistText = false;
+
     this.validateInput();
 
-    if (this.isWarning) {
-      return;
-    }
+    if (this.isWarning) return;
 
     const content = this.onFindBody(this.selectedOption);
 
-    if (!content) {
-      this.randomText += ' ' + this.onGetRandomText().body;
-    } else {
+    if (content) {
+      this.isExistText = verifyDuplicateText(this.randomText, content.body);
+
+      if (this.isExistText) return;
+
       this.randomText += ' ' + content.body;
+    } else {
+      this.isExistText = verifyDuplicateText(
+        this.randomText,
+        this.onGetRandomText().body
+      );
+
+      if (this.isExistText) return;
+
+      this.randomText += ' ' + this.onGetRandomText().body;
     }
+
+    this.stateService.setText(this.randomText);
   }
 
   onReplaceText() {
+    this.isExistText = false;
+
     this.validateInput();
 
     if (this.isWarning) {
@@ -67,6 +93,8 @@ export class HomeComponent {
     } else {
       this.randomText = content.body;
     }
+
+    this.stateService.setText(this.randomText);
   }
 
   onFindBody(value: string) {
@@ -77,7 +105,6 @@ export class HomeComponent {
     const max = this.contentData.length - 1;
     const min = 2;
     const randomIndex = generateRandomIndex(max, min);
-
     return this.contentData[randomIndex];
   }
 

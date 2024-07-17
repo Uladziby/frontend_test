@@ -18,9 +18,12 @@
         <app-button (click)="onChangeText()">DOKLEJ</app-button>
         <app-button (click)="onReplaceText()">ZASTĄP</app-button>
       </div>
-      <div *ngIf="isWarning" class="home__blocks-second_message">
+      <span *ngIf="isWarning" class="home__blocks-second_message">
         Nie wybrana żadna z opcji z pierwszego bloku!
-      </div>
+      </span>
+      <span *ngIf="isExistText" class="home__blocks-second_message">
+        Text już istnieje!
+      </span>
     </div>
     <div class="home__blocks-third">
       <h3 class="home__blocks-third_title">

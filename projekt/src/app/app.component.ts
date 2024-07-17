@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from '@app/core/state.service';
 import { NAME_LASTNAME } from '@app/shared/utils/constatnts';
 
 @Component({
@@ -10,6 +11,10 @@ export class AppComponent {
   public title = 'projekt';
 
   public name = '';
+
+  public selectedOption = '';
+
+  constructor(public stateService: StateService) {}
 
   showInformationHandler() {
     this.name = NAME_LASTNAME;
