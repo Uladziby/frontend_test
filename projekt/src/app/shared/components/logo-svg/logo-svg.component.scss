@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #2a2d36;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e88201;
+  }
+
+  &:active {
+    & > svg {
+      transform: scale(0.92);
+    }
+  }
+}

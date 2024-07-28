@@ -1,0 +1,97 @@
+:host {
+  width: 100%;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 2rem;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &-line {
+      width: 80%;
+      background-color: white;
+      height: 2px;
+    }
+  }
+
+  &__blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+
+    &-first {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      flex-basis: 45%;
+
+      &_title {
+        color: white;
+      }
+
+      @media (min-width: 960px) {
+        flex-basis: calc(25% - 2rem);
+      }
+    }
+
+    &-second {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex: 1;
+      flex-basis: 45%;
+
+      &_title {
+        color: white;
+        @media (min-width: 960px) {
+          width: 100%;
+          text-align: end;
+        }
+      }
+
+      &_buttons {
+        flex-direction: column;
+        display: flex;
+        gap: 1rem;
+
+        @media (min-width: 960px) {
+          flex-direction: row;
+        }
+      }
+      &_message {
+        margin-top: 2rem;
+        color: var(--primary-color);
+      }
+      @media (min-width: 960px) {
+        flex-basis: calc(25% - 2rem);
+      }
+    }
+
+    &-third {
+      flex: 2;
+      color: var(--secondary-color);
+
+      & > h3 {
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      @media (min-width: 960px) {
+        flex-basis: calc(50% - 2rem);
+      }
+    }
+  }
+}

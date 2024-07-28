@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #e88201;
+  --secondary-color: rgb(182, 182, 182);
+  --sm-breakpoint: 396px;
+  --md-breakpoint: 768px;
+  --l-breakpoint: 960px;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+}

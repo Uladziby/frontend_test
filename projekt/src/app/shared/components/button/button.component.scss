@@ -1,0 +1,23 @@
+.button {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 1px solid white;
+  font-size: 14px;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(205, 116, 0);
+    background: linear-gradient(
+      45deg,
+      rgba(205, 116, 0, 1) 0%,
+      rgba(253, 157, 32, 1) 73%
+    );
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgb(205, 116, 0);
+  }
+}

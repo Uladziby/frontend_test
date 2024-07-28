@@ -1,0 +1,14 @@
+<div class="container" *ngFor="let option of options">
+  <input
+    class="radio-input"
+    type="radio"
+    id="{{ option.id }}"
+    name="options"
+    value="{{ option.value }}"
+    (change)="onChangeValue($event)"
+    [checked]="option.value === defaultValue"
+  />
+  <label for="{{ option.id }}" class="label">
+    {{ option.label }}
+  </label>
+</div>

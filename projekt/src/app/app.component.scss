@@ -1,0 +1,13 @@
+.content {
+  display: flex;
+  flex: 1;
+  background-color: #2a2d36;
+}
+
+.main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: var(--mobile-breakpoint);
+}

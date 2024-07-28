@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+  padding: 0rem 2rem 0.5rem 2rem;
+  position: relative;
+  height: 8rem;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    flex: 1;
+  }
+  &__right {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

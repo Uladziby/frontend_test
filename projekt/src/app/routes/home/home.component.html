@@ -1,0 +1,35 @@
+<div class="home">
+  <div class="home__header">
+    <app-title> Nagłówek H1 </app-title>
+    <div class="home__header-line"></div>
+  </div>
+  <div class="home__blocks">
+    <div class="home__blocks-first">
+      <h3 class="home__blocks-first_title">BLOK PIERWSZY</h3>
+      <app-radio-group
+        class="radio-group"
+        [options]="options"
+        (changeValueHandler)="onSelectionChange($event)"
+      ></app-radio-group>
+    </div>
+    <div class="home__blocks-second">
+      <h3 class="home__blocks-second_title">BLOK DRUGI</h3>
+      <div class="home__blocks-second_buttons">
+        <app-button (click)="onChangeText()">DOKLEJ</app-button>
+        <app-button (click)="onReplaceText()">ZASTĄP</app-button>
+      </div>
+      <span *ngIf="isWarning" class="home__blocks-second_message">
+        Nie wybrana żadna z opcji z pierwszego bloku!
+      </span>
+      <span *ngIf="isExistText" class="home__blocks-second_message">
+        Text już istnieje!
+      </span>
+    </div>
+    <div class="home__blocks-third">
+      <h3 class="home__blocks-third_title">
+        BLOK Z DLUGĄ NAZWĄ SAMA SIĘ PRZYTNIE...
+      </h3>
+      {{ randomText }}
+    </div>
+  </div>
+</div>
